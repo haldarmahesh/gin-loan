@@ -46,7 +46,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: MyButton.primary(
             onPress: () {
               BlocProvider.of<NavigatorBloc>(context)
-                  .add(NavigateToLoanDetailEvent());
+                  .add(NavigateToGetStartedEvent());
             },
             title: 'Get Started')
         // RaisedButton(

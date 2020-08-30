@@ -10,10 +10,16 @@ class NavigatorBloc extends Bloc<NavigatorEvent, dynamic> {
 
   @override
   Stream mapEventToState(NavigatorEvent event) async* {
-    if (event is NavigateToGetStartedEvent) {
-      navigatorKey.currentState.pushNamed(RouteList.getStarted);
-    } else {
-      navigatorKey.currentState.pushNamed(RouteList.loanDetail);
+    switch (event.runtimeType) {
+      case NavigateToGetStartedEvent:
+        navigatorKey.currentState.pushNamed(RouteList.getStarted);
+        break;
+      case NavigateToLoanDetailEvent:
+        navigatorKey.currentState.pushNamed(RouteList.loanDetail);
+        break;
+      // TODO (mahesh): Add global exception handeler
+      default:
+        throw Exception('The route event is not defined');
     }
   }
 
