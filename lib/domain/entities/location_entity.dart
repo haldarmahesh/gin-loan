@@ -1,7 +1,11 @@
-import 'dart:ffi';
-
 class LocationEntity {
-  Double lat;
-  Double lng;
+  double lat;
+  double lng;
   String address;
+
+  LocationEntity({
+    this.lat,
+    this.lng,
+    this.address,
+  });
 }

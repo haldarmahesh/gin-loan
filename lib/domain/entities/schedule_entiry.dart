@@ -1,4 +1,8 @@
 class ScheduleEntity {
   String date;
-  int amout;
+  int amount;
+  ScheduleEntity({
+    this.date,
+    this.amount,
+  });
 }

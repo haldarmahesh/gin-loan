@@ -4,4 +4,10 @@ class LoanTermsEntity {
   String interestRate;
   int loanAmount;
   String loanProduct;
+  LoanTermsEntity({
+    this.duration,
+    this.interestRate,
+    this.loanAmount,
+    this.loanProduct,
+  });
 }
