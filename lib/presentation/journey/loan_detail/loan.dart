@@ -4,7 +4,7 @@ import 'package:contra_loan_app/presentation/widgets/card_details.dart';
 import 'package:flutter/material.dart';
 
 class LoanTermsDetailsWidget extends StatelessWidget {
-  LoanTermsEntity loanTerms;
+  final LoanTermsEntity loanTerms;
   LoanTermsDetailsWidget({this.loanTerms});
   @override
   Widget build(BuildContext context) {

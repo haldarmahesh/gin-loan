@@ -1,3 +1,4 @@
+import 'package:contra_loan_app/presentation/journey/future/future_page.dart';
 import 'package:contra_loan_app/presentation/journey/loan_detail/loan_detail_screen.dart';
 import 'package:contra_loan_app/presentation/journey/welcome/welcome_screen.dart';
 import 'package:contra_loan_app/presentation/route_list.dart';
@@ -9,7 +10,8 @@ class Routes {
   static Map<String, WidgetBuilder> _getCombinedRoutes() {
     return {
       RouteList.getStarted: (context) => WelcomeScreen(),
-      RouteList.loanDetail: (context) => LoanDetailScreen()
+      RouteList.loanDetail: (context) => LoanDetailScreen(),
+      RouteList.futurePage: (context) => FutureScreen(),
     };
   }
 }

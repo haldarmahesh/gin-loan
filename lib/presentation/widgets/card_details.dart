@@ -1,3 +1,5 @@
+import 'package:contra_loan_app/presentation/common_bloc/navigator/navigator_event.dart';
+import 'package:contra_loan_app/presentation/theme/borders.dart';
 import 'package:contra_loan_app/presentation/widgets/caption_information.dart';
 import 'package:contra_loan_app/presentation/widgets/hyperlink_widget.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +9,12 @@ class CardDetails extends StatelessWidget {
   final String title;
   final List<List<CaptionInformation>> listOfRowsDetails;
   final String hyperlinkTitle;
+  final NavigatorEvent navigatorEvent;
   CardDetails(
-      {@required this.title, this.listOfRowsDetails, this.hyperlinkTitle});
+      {@required this.title,
+      this.listOfRowsDetails,
+      this.hyperlinkTitle,
+      this.navigatorEvent});
   @override
   Widget build(BuildContext context) {
     var listWidgets = listOfRowsDetails
@@ -23,9 +29,7 @@ class CardDetails extends StatelessWidget {
       padding: EdgeInsets.all(12),
       child: Container(
         padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-        ),
+        decoration: solidContainerBorder,
         child: Column(
           children: <Widget>[
             ListTile(
@@ -43,12 +47,9 @@ class CardDetails extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomRight,
-              child: GestureDetector(
-                onTap: () {},
-                child: HyperLinkWidget(
-                  title: this.hyperlinkTitle,
-                  routeTo: '/s',
-                ),
+              child: HyperLinkWidget(
+                title: this.hyperlinkTitle,
+                navigateEvent: this.navigatorEvent,
               ),
             )
           ],

@@ -12,6 +12,8 @@ class NavigatorBloc extends Bloc<NavigatorEvent, dynamic> {
   Stream mapEventToState(NavigatorEvent event) async* {
     if (event is NavigateToLoanDetailEvent) {
       navigatorKey.currentState.pushNamed(RouteList.loanDetail);
+    } else if (event is NavigateToFutureEvent) {
+      navigatorKey.currentState.pushNamed(RouteList.futurePage);
     } else {
       navigatorKey.currentState.pushNamed(RouteList.getStarted);
     }
