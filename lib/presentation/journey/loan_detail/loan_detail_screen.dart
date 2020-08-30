@@ -9,6 +9,7 @@ import 'package:contra_loan_app/presentation/journey/loan_detail/bloc/loan_detai
 import 'package:contra_loan_app/presentation/journey/loan_detail/bloc/loan_detail_event.dart';
 import 'package:contra_loan_app/presentation/journey/loan_detail/bloc/loan_detail_state.dart';
 import 'package:contra_loan_app/presentation/widgets/base_scaffold.dart';
+import 'package:contra_loan_app/presentation/widgets/collapsible_image_with_info.dart';
 import 'package:contra_loan_app/presentation/widgets/title_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -55,31 +56,23 @@ class LoanDetailScreen extends StatelessWidget {
         TitleAppBar(
           title: loanEntity.title,
         ),
-        SliverAppBar(
-          expandedHeight: 200,
-          floating: false,
-          pinned: true,
-          flexibleSpace: FlexibleSpaceBar(
-            centerTitle: true,
-            title: Text(
-              loanEntity.applicantDetails.name,
-            ),
-            background: Image.network(
-              loanEntity.image.url,
-              fit: BoxFit.cover,
-            ),
-          ),
+        CollabsibleImageWithInfo(
+          imageUrl: loanEntity.image.url,
+          title: loanEntity.image.label,
+          subtitle: loanEntity.borrowerLocation.address,
         ),
         SliverList(
-          delegate: SliverChildBuilderDelegate((context, index) => Column(
-                children: <Widget>[
-                  Card(
-                    child: ListTile(
-                      title: Text('asd'),
-                    ),
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => Column(
+              children: <Widget>[
+                Card(
+                  child: ListTile(
+                    title: Text('asd'),
                   ),
-                ],
-              )),
+                ),
+              ],
+            ),
+          ),
         )
       ],
     );

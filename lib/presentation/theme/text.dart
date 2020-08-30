@@ -28,3 +28,8 @@ TextTheme getDefaultTextTheme() => TextTheme(
     caption: _caption,
     overline: _overline,
     button: _button);
+
+TextStyle get whiteBoldOverline =>
+    _overline.copyWith(color: Colors.white, fontWeight: FontWeight.bold);
+TextStyle get whiteOverline =>
+    _overline.copyWith(color: Colors.white, fontSize: 11);
