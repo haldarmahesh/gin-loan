@@ -1,4 +1,3 @@
-import 'package:contra_loan_app/core/network/mock_http_client.dart';
 import 'package:contra_loan_app/data/datasources/loan_remote_datasource.dart';
 import 'package:contra_loan_app/data/models/loan_model.dart';
 import 'package:contra_loan_app/domain/entities/loan_entity.dart';

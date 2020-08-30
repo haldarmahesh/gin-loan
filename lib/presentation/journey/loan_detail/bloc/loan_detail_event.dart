@@ -1,7 +1,11 @@
 abstract class LoanDetailEvent {}
 
-class FetchLoanDetailsRequestEvents extends LoanDetailEvent {}
+class FetchLoanDetailsRequestEvent extends LoanDetailEvent {}
 
-class FetchLoanDetailsSuccessEvents extends LoanDetailEvent {}
+// class FetchLoanDetailsLoaderOnEvent extends LoanDetailEvent {}
 
-class FetchLoanDetailsFailureEvents extends LoanDetailEvent {}
+// class FetchLoanDetailsLoaderOffEvent extends LoanDetailEvent {}
+
+class FetchLoanDetailsSuccessEvent extends LoanDetailEvent {}
+
+class FetchLoanDetailsFailureEvent extends LoanDetailEvent {}
