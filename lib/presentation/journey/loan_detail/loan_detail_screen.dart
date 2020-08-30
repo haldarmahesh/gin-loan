@@ -5,9 +5,12 @@ import 'package:contra_loan_app/data/repositories/loan_detail_repository_impl.da
 import 'package:contra_loan_app/domain/entities/loan_entity.dart';
 
 import 'package:contra_loan_app/domain/usecases/get_loan_detail_usecase.dart';
+import 'package:contra_loan_app/presentation/journey/loan_detail/application_details_widget.dart';
 import 'package:contra_loan_app/presentation/journey/loan_detail/bloc/loan_detail_bloc.dart';
 import 'package:contra_loan_app/presentation/journey/loan_detail/bloc/loan_detail_event.dart';
 import 'package:contra_loan_app/presentation/journey/loan_detail/bloc/loan_detail_state.dart';
+import 'package:contra_loan_app/presentation/journey/loan_detail/loan.dart';
+import 'package:contra_loan_app/presentation/journey/loan_detail/repayment_schedule_details.dart';
 import 'package:contra_loan_app/presentation/widgets/base_scaffold.dart';
 import 'package:contra_loan_app/presentation/widgets/collapsible_image_with_info.dart';
 import 'package:contra_loan_app/presentation/widgets/title_app_bar.dart';
@@ -50,7 +53,7 @@ class LoanDetailScreen extends StatelessWidget {
     ));
   }
 
-  Widget renderUi(LoanEntity loanEntity) {
+  Widget renderList(LoanEntity loanEntity) {
     return CustomScrollView(
       slivers: <Widget>[
         TitleAppBar(
@@ -62,17 +65,23 @@ class LoanDetailScreen extends StatelessWidget {
           subtitle: loanEntity.borrowerLocation.address,
         ),
         SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) => Column(
-              children: <Widget>[
-                Card(
-                  child: ListTile(
-                    title: Text('asd'),
+          delegate: SliverChildBuilderDelegate((context, index) {
+            return Container(
+              child: Column(
+                children: <Widget>[
+                  ApplicationDetailsWidget(
+                    applicantDetailsEntity: loanEntity.applicantDetails,
                   ),
-                ),
-              ],
-            ),
-          ),
+                  LoanTermsDetailsWidget(
+                    loanTerms: loanEntity.loanTerms,
+                  ),
+                  RepaymentScheduleDetails(
+                    repaymentSchedule: loanEntity.repaymentSchedule,
+                  )
+                ],
+              ),
+            );
+          }, childCount: 1),
         )
       ],
     );
@@ -89,7 +98,7 @@ class LoanDetailScreen extends StatelessWidget {
         builder: (context, state) {
           return BaseScaffold(
             body: state.runtimeType == LoanDetailLoadedState
-                ? renderUi(state.loanEntity)
+                ? renderList(state.loanEntity)
                 : loader(),
           );
         });

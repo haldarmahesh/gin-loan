@@ -31,5 +31,18 @@ TextTheme getDefaultTextTheme() => TextTheme(
 
 TextStyle get whiteBoldOverline =>
     _overline.copyWith(color: Colors.white, fontWeight: FontWeight.bold);
+
+TextStyle get blackBoldOverline =>
+    _body1.copyWith(color: Colors.black, fontWeight: FontWeight.bold);
+
+TextStyle get display2BoldOverline =>
+    _display2.copyWith(color: Colors.black, fontWeight: FontWeight.bold);
+
 TextStyle get whiteOverline =>
     _overline.copyWith(color: Colors.white, fontSize: 11);
+
+TextStyle get highlightLinkOverline => _overline.copyWith(
+      color: Colors.blue,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    );
