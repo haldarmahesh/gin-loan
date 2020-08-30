@@ -7,7 +7,7 @@ class GetLoanDetailUseCase {
   GetLoanDetailUseCase({@required this.loanDetailRepository})
       : assert(loanDetailRepository != null,
             'LoanDetailRepository cannot be null');
-  LoanEntity result() {
+  Future<LoanEntity> result() {
     return this.loanDetailRepository.getLoanDetails();
   }
 }
