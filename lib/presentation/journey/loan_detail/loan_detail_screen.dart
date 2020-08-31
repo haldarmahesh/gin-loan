@@ -29,6 +29,7 @@ class LoanDetailScreen extends StatelessWidget {
   LoanDetailBloc loanDetailBloc;
 
   LoanDetailScreen() {
+    // TODO(mahesh): move these to DI
     mockHttpClient = new MockHttpClient();
     loanRemoteDatasource = new LoanRemoteDatasource(
       mockHttpClient: mockHttpClient,
@@ -44,6 +45,15 @@ class LoanDetailScreen extends StatelessWidget {
         new LoanDetailBloc(getLoanDetailUseCase: getLoanDetailUseCase)
           ..add(FetchLoanDetailsRequestEvent());
   }
+
+  dispose() {
+    loanRemoteDatasource = null;
+    mockHttpClient = null;
+    getLoanDetailUseCase = null;
+    loanDetailRepositoryImpl = null;
+    loanDetailBloc?.close();
+  }
+
   Widget loader() {
     return Center(
         child: Container(
