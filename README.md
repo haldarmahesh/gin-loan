@@ -45,3 +45,4 @@ This is responsible for reacting to user’s event and fetch or set data to our 
 - Add global loader
 - Add global exception handler
 - Add unit test cases
+- The integration of location plugin to generate map
